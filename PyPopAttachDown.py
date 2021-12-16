@@ -8,13 +8,6 @@ from email.parser import Parser
 from getpass import getpass
 from optparse import OptionParser
 
-def get_password():
-    if sys.stdin.isatty():
-        return getpass("POP3 Password: ")
-    else:
-        print("pass=" + sys.stdin.read().strip())
-    return sys.stdin.read().strip()
-
 parser = OptionParser()
 parser.add_option("--delete", dest="delete", action="store_true", help="Delete all E-mails when attachment was saved")
 parser.add_option("--hostname", dest="hostname", help="Hostname POP3 Mailserver")
@@ -103,7 +96,7 @@ if count_mails == 0:
     connection.quit()
     sys.exit(1)
 else:
-    logging.info('Inbox has %s unread E-mails. Try to proceed them', count_mails)
+    logging.info('Inbox has %s unread E-mails. Try to process them', count_mails)
     for i in range(count_mails):  
         counter = i + 1
         lines = connection.retr(counter)[1]
