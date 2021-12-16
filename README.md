@@ -3,7 +3,7 @@
 
 Simplified tool for downloading attachments of POP3 E-mails and delete the processed E-mails
 
-# Usage:
+### Usage:
 
 Usage: attachment-downloader [options]
 
@@ -19,12 +19,9 @@ and Windows based paths (D:\\Path\\To\\Download)
 --delete       
 Delete downloaded emails from Mailbox
 
-
-
-# Example:
+### Example:
 
 $ PyAttachDown.py --hostname=pop.kabelmail.de --username=foo.bar@foo.com --downloadpath=/tmp/attachents --password=FooBar --delete
-
 
 
 Heavily inspired from the great work of abgdf@gmx.net and noPlan (attsave.py script) and the IMAP attachment downloader https://github.com/jamesridgway/attachment-downloader
