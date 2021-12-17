@@ -5,7 +5,7 @@ Simplified tool for downloading attachments of POP3 E-mails and delete the proce
 
 ### Usage:
 
-Usage: attachment-downloader [options]
+Usage: PyAttachDown.py [options]
 
 # Options:
 * -h, --help    show this help message and exit
