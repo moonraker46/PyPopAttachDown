@@ -8,16 +8,20 @@ Simplified tool for downloading attachments of POP3 E-mails and delete the proce
 Usage: attachment-downloader [options]
 
 Options:
--h, --help            show this help message and exit
---hostname=HOST       Mailserver Hostname
---username=USERNAME   POP3 Username
---password=PASSWORD   POP3 Password
+-h, --help            
+  show this help message and exit
+--hostname=HOST       
+  Mailserver Hostname
+--username=USERNAME   
+  POP3 Username
+--password=PASSWORD   
+  POP3 Password
 --downloadpath=DOWNLOADPATH
-Folder in which the attachments are downloaded
-Please consider difference between UNIX based (/path/to/download)
-and Windows based paths (D:\\Path\\To\\Download)
+  Folder in which the attachments are downloaded
+  Please consider difference between UNIX based (/path/to/download)
+  and Windows based paths (D:\\Path\\To\\Download)
 --delete       
-Delete downloaded emails from Mailbox
+  Delete downloaded emails from Mailbox
 
 ### Example:
 
