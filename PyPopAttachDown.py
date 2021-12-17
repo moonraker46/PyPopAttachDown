@@ -47,10 +47,10 @@ root_logger.addHandler(std_err_stream_handler)
 
 
 t = time.localtime() * 1000
-timestamp = time.strftime("%d%m%y_%H%M")
+timestamp = time.strftime("%d%m%y_%H%M%S")
 
 
-def save_attachment(mstring):
+def save_attachment(mstring, mails_total, index):
 
     filenames = []
     attachedcontents = []
@@ -66,14 +66,12 @@ def save_attachment(mstring):
             attachedcontents.append(part.get_payload(decode=True))
 
     for i in range(len(filenames)):
-        download_filename = timestamp + time.strftime("%S") + "_" + filenames[i]
+        download_filename = timestamp + time.strftime("%S") + "_" + str(index)  + "_" + filenames[i]
         download_path = os.path.join(options.downloadpath, download_filename)
-        os.makedirs(os.path.dirname(os.path.abspath(options.downloadpath)), exist_ok=True)
 
-        time.sleep(2)
         with open(download_path, "wb") as fp:
             fp.write(attachedcontents[i])
-            logging.info('Attachment from message was saved to %s', download_path)
+            logging.info('Attachment from message %s (of %s) was saved to %s', index, mails_total, download_path)
         fp.close()
 
 
@@ -88,8 +86,7 @@ except:
     sys.exit(1)
 logging.info('Login to %s as %s was successful', options.hostname, options.username)
 
-anzahl_mails = len(connection.list()[1])
-count_mails = int(anzahl_mails)
+count_mails = int(len(connection.list()[1]))
 
 if count_mails == 0:
     logging.info('Inbox is empty. Logout from server')
@@ -101,10 +98,10 @@ else:
         counter = i + 1
         lines = connection.retr(counter)[1]
         mailstring = b"\r\n".join(lines).decode("utf-8")
-        save_attachment(mailstring)
+        save_attachment(mailstring, count_mails, counter)
         if options.delete:
             connection.dele(counter)
-            logging.info('All E-mails were deleted')
+    logging.info('All E-mails were deleted')
 connection.quit()
 logging.info('All attachments were downloaded. Logout from server')
 time.sleep(2)
