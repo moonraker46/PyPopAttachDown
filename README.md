@@ -5,7 +5,7 @@ Simplified tool for downloading attachments of POP3 E-mails and delete the proce
 
 ### Usage:
 
-Usage: PyAttachDown.py [options]
+Usage: PyPopAttachDown.py [options]
 
 # Options:
 * -h, --help    show this help message and exit
@@ -17,7 +17,7 @@ Usage: PyAttachDown.py [options]
 
 ### Example:
 
-$ python PyAttachDown.py --hostname=pop.foo.com --username=foo.bar@foo.com --downloadpath=/tmp/attachents --password=FooBar --delete
+$ python PyPopAttachDown.py --hostname=pop.foo.com --username=foo.bar@foo.com --downloadpath=/tmp/attachents --password=FooBar --delete
 
 
 Heavily inspired from the great work of abgdf@gmx.net and noPlan (attsave.py script) and the IMAP attachment downloader https://github.com/jamesridgway/attachment-downloader
